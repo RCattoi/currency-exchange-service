@@ -1,0 +1,49 @@
+# Ignore arquivos de compilação e arquivos gerados
+bin/
+obj/
+appsettings.json
+# Ignorar arquivos de configuração
+*.suo
+*.user
+*.sln.docstates
+
+# Ignorar caches e arquivos de log
+*.log
+*.vscode/
+.vs/
+
+# Ignorar pacotes do NuGet
+*.nuget.props
+*.paket.props
+*.paket.targets
+packages/
+*.lock.json
+*.ide/
+
+# Ignorar arquivos de build do MSBuild
+build/
+
+# Ignorar arquivos temporários
+*~
+
+# Ignorar arquivos de teste
+*.swp
+*.swo
+
+# Ignorar arquivos de depuração e publicação
+*.pdb
+*.dll
+*.exe
+*.cache
+*.bak
+
+# Ignorar arquivos de ferramentas de desenvolvimento
+_ReSharper*/
+*.resharper.user
+*.resharper
+
+# Ignorar arquivos de dependências do npm
+node_modules/
+
+# Ignorar arquivos de dependências do yarn
+yarn.lock
