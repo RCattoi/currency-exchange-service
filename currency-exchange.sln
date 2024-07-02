@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UpdateDB", "UpdateDB\UpdateDB.csproj", "{AA374C0C-7247-4406-A988-6BDCD68B5AD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConnectionLib", "DataConnectionLib\DataConnectionLib.csproj", "{6AB02139-631D-4FAD-96CB-843E92311DBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AA374C0C-7247-4406-A988-6BDCD68B5AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA374C0C-7247-4406-A988-6BDCD68B5AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA374C0C-7247-4406-A988-6BDCD68B5AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AB02139-631D-4FAD-96CB-843E92311DBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB02139-631D-4FAD-96CB-843E92311DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AB02139-631D-4FAD-96CB-843E92311DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AB02139-631D-4FAD-96CB-843E92311DBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
