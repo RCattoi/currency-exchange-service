@@ -1,4 +1,5 @@
 using System.Text;
+using DataConnectionLib;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using UpdateDB.Infra;
@@ -16,14 +17,21 @@ public class Worker : BackgroundService
 
   protected override async Task ExecuteAsync(CancellationToken stoppingToken)
   {
-    RabbitMqHandler rabbit = new();
+    RabbitConnection rabbit = new();
     rabbit.Connect();
+    rabbit.ConfigureQueue(new List<string> { "redis", "sql"});
+    if (rabbit._channel == null)
+    {
+      Console.WriteLine("Canal não configurado");
+      return;
+    }
+    RabbitMqHandler sender = new(rabbit._channel);
     RetrieveCurrency getCurrency = new();
 
     while (!stoppingToken.IsCancellationRequested)
     {
       CurrencyListModel currencyToUpdate = await getCurrency.GetCurrencyList();
-      rabbit.SendToQueue(currencyToUpdate);
+      sender.SendToQueue(currencyToUpdate);
       await Task.Delay(30000, stoppingToken);
     }
   }
