@@ -1,4 +1,4 @@
-namespace UpdateDB.Infra
+namespace UpdateDB.Models
 {
   public class CurrencyListModel
   {
