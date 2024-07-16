@@ -7,7 +7,7 @@ namespace UpdateDB.Models
 {
     public class MessageModel(string action, CurrencyListModel message)
   {
-    string Action { get; set; } = action;
-    CurrencyListModel Message { get; set; } = message;
+    public string Action { get; set; } = action;
+    public CurrencyListModel Message { get; set; } = message;
   }
 }
