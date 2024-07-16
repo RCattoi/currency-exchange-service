@@ -1,11 +1,11 @@
 using Newtonsoft.Json.Linq;
+using UpdateDB.Models;
 
 
 namespace UpdateDB.Infra
 {
   public class RetrieveCurrency
   {
-
     public async Task<CurrencyListModel> GetCurrencyList()
     {
       await Console.Out.WriteLineAsync("inicio updateTeste");

@@ -2,6 +2,7 @@
 using RabbitMQ.Client;
 using System.Text.Json;
 using System.Text;
+using UpdateDB.Models;
 
 
 
@@ -19,7 +20,7 @@ namespace UpdateDB.Infra
       _channel = channel;
     }
 
-    public void SendToQueue(CurrencyListModel currencyList)
+    public void SendToQueue(MessageModel message)
     {
       if (_channel == null)
       {
@@ -28,8 +29,7 @@ namespace UpdateDB.Infra
       }
       try
       {
-        string jsonString = JsonSerializer.Serialize(currencyList.Currencies, new JsonSerializerOptions { WriteIndented = true });
-        System.Console.WriteLine(jsonString);
+        string jsonString = JsonSerializer.Serialize(message, new JsonSerializerOptions { WriteIndented = true });
         byte[] messageBody = Encoding.UTF8.GetBytes(jsonString);
         _channel.BasicPublish(exchangeName, routingKey, basicProperties: null, messageBody);
       }
