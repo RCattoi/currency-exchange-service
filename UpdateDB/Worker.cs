@@ -3,6 +3,7 @@ using DataConnectionLib;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using UpdateDB.Infra;
+using UpdateDB.Models;
 
 namespace UpdateDB;
 
@@ -19,7 +20,7 @@ public class Worker : BackgroundService
   {
     RabbitConnection rabbit = new();
     rabbit.Connect();
-    rabbit.ConfigureQueue(new List<string> { "redis", "sql"});
+    rabbit.ConfigureQueue(new List<string> { "redis", "sql" });
     if (rabbit._channel == null)
     {
       Console.WriteLine("Canal não configurado");
@@ -31,7 +32,8 @@ public class Worker : BackgroundService
     while (!stoppingToken.IsCancellationRequested)
     {
       CurrencyListModel currencyToUpdate = await getCurrency.GetCurrencyList();
-      sender.SendToQueue(currencyToUpdate);
+      MessageModel message = new("update", currencyToUpdate);
+      sender.SendToQueue(message);
       await Task.Delay(30000, stoppingToken);
     }
   }
